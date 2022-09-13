@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 06:47:37 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/13 14:40:40 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/13 19:53:51 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_render_image(t_game *game, char *path, int x, int y)
 	size = 100;
 	x = x * size;
 	y = y * size;
-	game->img = mlx_xpm_file_to_image(game->mlx, path, &game->w, &game->h);
+	game->img = mlx_xpm_file_to_image(game->mlx, path, &size, &size);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img, x, y);
 	mlx_destroy_image(game->mlx, game->img);
 }

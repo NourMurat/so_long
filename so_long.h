@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:51:28 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/13 14:45:23 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/13 19:43:00 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_game
 	int		h;
 	int		collectible_item;
 	int		flag;
-	int		hash_map[256][256];
+	char	hash_map[256][256];
 	int		is_exit;
 	int 	av_coins;
 	int		steps;
@@ -66,6 +66,10 @@ void	ft_render_map(t_game *game);
 void	ft_render_window(t_game *game);
 void	ft_put_image_and_find_player(t_game *game, char c, int x, int y);
 void	ft_render_image(t_game *game, char *path, int x, int y);
+
+void	ft_valid_path_to_exit(t_game *game);
+void	ft_reach_exit(t_game *game, int x, int y);
+int		ft_check_path_to_exit(t_game *game, int x, int y);
 
 int		ft_player_movement(int key, t_game *game);
 void	ft_next_step(t_game *game, int x, int y);

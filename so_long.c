@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 20:30:40 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/13 14:36:27 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/13 20:12:46 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,68 @@ int	ft_close_window(t_game *game)
 	exit(0);
 }
 
-// void	ft_check_way(t_game *game, int ppx, int ppy)
-// {
-// 
-// 	if (game->hash_map[game->ppx][game->ppy] = 1)
-// 		return (1);
-// 	return (0);
-// }
+int	ft_check_path_to_exit(t_game *game, int x, int y)
+{
+	if (game->map[y][x] == '1')
+		return (0);
+	if (game->hash_map[y][x] == '1')
+		return (0);
+	return (1);
+}
+
+void	ft_reach_exit(t_game *game, int x, int y)
+{
+	game->hash_map[y][x] = '1';
+	int i = 0;
+	int	j = 0;
+	while (i < game->h)
+	{
+		j = 0;
+		while (j < game->w)
+		{
+			printf("%c", game->hash_map[i][j]);
+			j++;	
+		}
+		printf("\n");
+		i++;
+	}
+	printf("\n\n");
+	if (game->map[y][x] == 'E')
+		game->is_exit = 1;
+	if (game->map[y][x] == 'C')
+		game->av_coins++;
+	if (ft_check_path_to_exit(game, x, y-1) == 1)
+		ft_reach_exit(game, x, y-1);
+	if (ft_check_path_to_exit(game, x+1, y) == 1)
+		ft_reach_exit(game, x+1, y);
+	if (ft_check_path_to_exit(game, x, y+1) == 1)
+		ft_reach_exit(game, x, y+1);
+	if (ft_check_path_to_exit(game, x-1, y) == 1)
+		ft_reach_exit(game, x-1, y);
+}
+
+void	ft_valid_path_to_exit(t_game *game)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while (y < game->h)
+	{
+		x = 0;
+		while (x < game->w)
+		{
+			game->hash_map[y][x] = '0';
+			x++;
+		}
+		y++;
+	}
+	x = game->ppx;
+	y = game->ppy;
+	ft_reach_exit(game, x, y);
+	if (game->is_exit != 1 || game->av_coins != game->collectible_item)
+		ft_error_map(game, "Map not valid!");
+}
 
 void	ft_error_map(t_game *game, char *s)
 {
@@ -71,7 +126,7 @@ int	main(int argc, char **argv)
 	if (!game.mlx)
 		return (0);
 	ft_render_map(&game);
-	// ft_check_way(&game, &game.ppx, &game.ppy);
+	ft_valid_path_to_exit(&game);
 	mlx_key_hook(game.mlx_win, ft_player_movement, &game);
 	mlx_hook(game.mlx_win, 17, 0, ft_close_window, &game);
 	mlx_loop(game.mlx);
