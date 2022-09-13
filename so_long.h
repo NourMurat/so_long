@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:51:28 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/13 06:32:00 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:45:23 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,21 @@
 
 typedef struct s_game
 {
-	int		x;
-	int		y;
+	int		ppx;
+	int		ppy;
 	char	**map;
-	int		width;
-	int		height;
+	int		w;
+	int		h;
 	int		collectible_item;
+	int		flag;
+	int		hash_map[256][256];
+	int		is_exit;
+	int 	av_coins;
 	int		steps;
 	void	*mlx;
 	void	*mlx_win;
 	void	*img;
 }	t_game;
-
-// typedef struct s_check_way
-// {
-// 	int	is_exit;
-// 	int av_coins;
-// } t_check_way;
 
 void	ft_error(char *string);
 void	ft_error_tempmap(char *tempmap, char *string);
@@ -71,7 +69,11 @@ void	ft_render_image(t_game *game, char *path, int x, int y);
 
 int		ft_player_movement(int key, t_game *game);
 void	ft_next_step(t_game *game, int x, int y);
+void	ft_flag0_steps(t_game *game, int next_x, int next_y);
+void	ft_flag1_steps(t_game *game, int next_x, int next_y);
+void	ft_met_exit(t_game *game, int next_x, int next_y);
 void	ft_render_move(t_game *game, int next_x, int next_y);
+void	ft_if_flag1_flag2_render(t_game *game, int next_x, int next_y);
 int		ft_close_window(t_game *game);
 
 #endif
