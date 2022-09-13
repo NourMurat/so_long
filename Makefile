@@ -6,15 +6,14 @@
 #    By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 21:01:55 by numussan          #+#    #+#              #
-#    Updated: 2022/09/10 12:56:41 by numussan         ###   ########.fr        #
+#    Updated: 2022/09/13 06:32:19 by numussan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= so_long
 
 SRCS		= get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
-			so_long.c parsing.c 
-# render.c movement.c
+			so_long.c parsing.c render.c movement.c
 
 OBJS		= $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 06:47:37 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/09 05:29:29 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/13 06:29:24 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_render_image(t_game *game, char *filename, int x, int y)
 	y = y * size;
 	game->img = mlx_xpm_file_to_image(game->mlx, filename, &game->width, &game->height);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, game->img, x, y);
-	// mlx_destroy_image(game->mlx, game->img);
+	mlx_destroy_image(game->mlx, game->img);
 }
 
 void	put_image_and_find_player(t_game *game, char c, int x, int y)
@@ -80,5 +80,5 @@ void	ft_render_map(t_game *game)
 		}
 		y++;
 	}
-	// ft_printf("%d %d", game->x, game->y);
+	ft_printf("%d %d", game->x, game->y);
 }
