@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:29:39 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/13 14:39:56 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/15 20:48:40 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	ft_count_elements(t_game *game, char c)
 void	ft_check_number_elements(t_game *game)
 {
 	game->collectible_item = ft_count_elements(game, 'C');
-	if (ft_count_elements(game, 'P') != 1)
-		ft_error_map(game, "Error! There must be only 1 Player on the map!");
 	if (game->collectible_item < 1)
 		ft_error_map(game, "Error! There must be 1 or more Coins on the map!");
+	if (ft_count_elements(game, 'P') != 1)
+		ft_error_map(game, "Error! There must be only 1 Player on the map!");
 	if (ft_count_elements(game, 'E') < 1)
 		ft_error_map(game, "Error! There must be 1 or more Exits on the map!");
 }
