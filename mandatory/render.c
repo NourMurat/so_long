@@ -6,11 +6,11 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 06:47:37 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/13 19:53:51 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:51:02 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_render_image(t_game *game, char *path, int x, int y)
 {
@@ -38,7 +38,7 @@ void	put_image_and_find_player(t_game *game, char c, int x, int y)
 		game->ppx = x;
 		game->ppy = y;
 		ft_render_image(game, GROUND, x, y);
-		ft_render_image(game, PLAYER1, x, y);
+		ft_render_image(game, PLAYER2, x, y);
 	}
 	if (c == 'C')
 	{
@@ -79,5 +79,4 @@ void	ft_render_map(t_game *game)
 		}
 		y++;
 	}
-	ft_printf("Player position - %d %d\n", game->ppx, game->ppy);
 }

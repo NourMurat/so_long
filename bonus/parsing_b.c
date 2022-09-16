@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 03:45:47 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/13 14:39:45 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:17:40 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_check_map(t_game *game, char *read_map)
 {
@@ -45,14 +45,13 @@ char	*ft_read_map(char *file)
 	while (temp_map != NULL)
 	{
 		if (temp_map != NULL && temp_map[0] == '\n')
-			ft_error_tempmap(temp_map, "Error! Error! Map not valid!");
+			ft_error_tempmap(temp_map, "Error! Map not valid!");
 		read_map = ft_strjoin(read_map, temp_map);
 		temp_map = get_next_line(fd);
 	}
 	if (temp_map != NULL)
 		free(temp_map);
 	close (fd);
-	ft_printf("%s\n", read_map);
 	return (read_map);
 }
 
@@ -64,6 +63,8 @@ void	ft_check_file_extension(char *file)
 	right_extension = ".ber";
 	extension = "";
 	extension = ft_strrchr(file, 46);
+	if (extension == NULL)
+		ft_error("Error! Extension not valid\n");
 	if (ft_strncmp(right_extension, extension, ft_strlen(right_extension)) != 0)
 		ft_error("Error! Extension not valid\n");
 }

@@ -6,11 +6,11 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 08:55:50 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/13 14:24:53 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:20:36 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_flag1_steps(t_game *game, int next_x, int next_y)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing2.c                                         :+:      :+:    :+:   */
+/*   parsing2_b.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:29:39 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/15 20:48:40 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/16 17:38:38 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ft_check_simbols(t_game *game)
 {
@@ -25,7 +25,8 @@ void	ft_check_simbols(t_game *game)
 		while (game->map[i][k])
 		{
 			ch = game->map[i][k];
-			if (ch != 'P' && ch != 'C' && ch != 'E' && ch != '0' && ch != '1')
+			if (ch != 'P' && ch != 'C' && ch != 'E'
+				&& ch != '0' && ch != '1' && ch != 'D')
 				ft_error_map(game, "Error! Invalid simbol(s) on the map!");
 			k++;
 		}
