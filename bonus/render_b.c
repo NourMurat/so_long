@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 06:47:37 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/16 17:43:47 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:37:49 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,4 @@ void	ft_render_map(t_game *game)
 		}
 		y++;
 	}
-	ft_printf("Player position - %d %d\n", game->ppx, game->ppy);
 }

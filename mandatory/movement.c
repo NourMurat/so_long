@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 08:55:50 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/16 19:20:36 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:01:56 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,21 @@ void	ft_flag1_steps(t_game *game, int next_x, int next_y)
 	{
 		game->map[next_y][next_x] = 'P';
 		game->map[game->ppy][game->ppx] = 'E';
+		game->flag = 2;
 	}
 	if (game->map[next_y][next_x] == 'C')
 	{
 		game->collectible_item--;
 		game->map[next_y][next_x] = 'P';
 		game->map[game->ppy][game->ppx] = 'E';
+		game->flag = 2;
 	}
-	game->flag = 2;
+	if (game->map[next_y][next_x] == 'E')
+	{
+		game->map[next_y][next_x] = 'P';
+		game->map[game->ppy][game->ppx] = 'E';
+		game->flag = 3;
+	}
 }
 
 void	ft_flag0_steps(t_game *game, int next_x, int next_y)

@@ -6,7 +6,7 @@
 /*   By: numussan <numussan@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:51:28 by numussan          #+#    #+#             */
-/*   Updated: 2022/09/16 17:44:49 by numussan         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:43:41 by numussan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ft_flag0_steps(t_game *game, int next_x, int next_y);
 void	ft_flag1_steps(t_game *game, int next_x, int next_y);
 void	ft_met_exit(t_game *game, int next_x, int next_y);
 void	ft_render_move(t_game *game, int next_x, int next_y);
-void	ft_if_flag1_flag2_render(t_game *game, int next_x, int next_y);
+void	ft_if_flag2_flag3_render(t_game *game, int next_x, int next_y);
 int		ft_close_window(t_game *game);
 
 #endif
